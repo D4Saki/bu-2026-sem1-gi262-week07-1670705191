@@ -7,7 +7,7 @@ namespace Solution
         public override bool Hit()
         {
             Debug.Log("Item: " + Name + " has been picked up.");
-            // ·ÓÅÒÂäÍà·çÁÍÍ¡¨Ò¡©Ò¡
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¡ï¿½Ò¡ï¿½Ò¡
             mapGenerator.player.inventory.AddItem(Name, 1);
             Destroy(gameObject);
             return true;

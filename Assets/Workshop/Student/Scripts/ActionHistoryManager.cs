@@ -78,7 +78,7 @@ namespace Solution
         {
             player.isAutoMoving = true;
 
-            // 1. เตรียม Queue: ล้าง Queue เดิมและเพิ่มลำดับการเคลื่อนที่ใหม่
+            // 1. ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ Queue: ๏ฟฝ๏ฟฝาง Queue ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝำดับ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ
             autoMoveQueue.Clear();
             foreach (var move in moves)
             {
@@ -87,17 +87,17 @@ namespace Solution
 
             Debug.Log($"Auto-move sequence started with {autoMoveQueue.Count} steps.");
 
-            // 2. ประมวลผล Queue ทีละขั้นตอน
+            // 2. ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝลผ๏ฟฝ Queue ๏ฟฝ๏ฟฝ๏ฟฝะข๏ฟฝ้นตอน
             while (autoMoveQueue.Count > 0)
             {
-                // ดึงทิศทางถัดไปจาก Queue (Dequeue)
+                // ๏ฟฝึง๏ฟฝ๏ฟฝศทาง๏ฟฝัดไปจาก Queue (Dequeue)
                 Vector2 nextDirection = autoMoveQueue.Dequeue();
 
-                // ทำการเคลื่อนที่ (สมมติว่า TryMove() หรือ Move() คือเมธอดที่ใช้)
+                // ๏ฟฝำก๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอน๏ฟฝ๏ฟฝ๏ฟฝ (๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ TryMove() ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ Move() ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอด๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ)
                 player.Move(nextDirection);
 
-                // รอ (Yield) เป็นเวลา moveDelay วินาที ก่อนดำเนินการขั้นตอนถัดไป
-                // ทำให้เห็นการเคลื่อนที่ทีละขั้นตอน
+                // ๏ฟฝ๏ฟฝ (Yield) ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ moveDelay ๏ฟฝินาท๏ฟฝ ๏ฟฝ๏ฟฝอน๏ฟฝ๏ฟฝ๏ฟฝิน๏ฟฝ๏ฟฝรข๏ฟฝ้นตอน๏ฟฝัด๏ฟฝ
+                // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ็นก๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝะข๏ฟฝ้นตอน
                 yield return new WaitForSeconds(0.5f);
             }
             player.isAutoMoving = false;
